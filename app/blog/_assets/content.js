@@ -1,5 +1,5 @@
 import Image from "next/image";
-import marcImg from "@/app/blog/_assets/images/authors/marc.png";
+import kentImg from "@/app/blog/_assets/images/authors/kent.jpg";
 import introducingSupabaseImg from "@/public/blog/introducing-supabase/header.png";
 
 // ==================================================================================================================================================================
@@ -8,34 +8,97 @@ import introducingSupabaseImg from "@/public/blog/introducing-supabase/header.pn
 
 // These slugs are used to generate pages in the /blog/category/[categoryI].js. It's a way to group articles by category.
 const categorySlugs = {
-  feature: "feature",
-  tutorial: "tutorial",
+  startup: "Start Up",
+  university: "University",
+  Tech: "Tech",
+  thoughts: "Thoughts",
+  hobby: "Hobby",
+  sea: "South East Asia",
+  SaaS: "SaaS",
 };
 
 // All the blog categories data display in the /blog/category/[categoryI].js pages.
 export const categories = [
   {
-    // The slug to use in the URL, from the categorySlugs object above.
-    slug: categorySlugs.feature,
-    // The title to display the category title (h1), the category badge, the category filter, and more. Less than 60 characters.
-    title: "New Features",
-    // A short version of the title above, display in small components like badges. 1 or 2 words
-    titleShort: "Features",
-    // The description of the category to display in the category page. Up to 160 characters.
+    slug: categorySlugs.startup,
+    title: "Start Up",
+    titleShort: "Start Up",
     description:
-      "Here are the latest features we've added to ShipFast. I'm constantly improving our product to help you ship faster.",
-    // A short version of the description above, only displayed in the <Header /> on mobile. Up to 60 characters.
-    descriptionShort: "Latest features added to ShipFast.",
+    "startup is a young company founded by one or more entrepreneurs to develop a unique product or service and bring it to market.",
+    descriptionShort: "startup is cool",
   },
   {
-    slug: categorySlugs.tutorial,
-    title: "How Tos & Tutorials",
-    titleShort: "Tutorials",
+    slug: categorySlugs.university,
+    title: "University",
+    titleShort: "University",
     description:
-      "Learn how to use ShipFast with these step-by-step tutorials. I'll show you how to ship faster and save time.",
-    descriptionShort:
-      "Learn how to use ShipFast with these step-by-step tutorials.",
+    " My journey in university, the things I learn, the people I meet, the experience I gain.",
+    descriptionShort: " My journey in university",
   },
+  {
+    slug: categorySlugs.AI,
+    title: "Tech",
+    titleShort: "Tech",
+    description:
+    " I work as an MLOps engineer currently and want to share my experience and thoughts on the current tech I am using.",
+    descriptionShort: " AI is love in chinese"
+    },
+  {
+    slug: categorySlugs.thoughts,
+    title: "Thoughts",
+    titleShort: "Thoughts",
+    description:
+    " My thoughts on life, career, and the world.",
+    descriptionShort: " My thoughts",
+  },
+  {
+    slug: categorySlugs.hobby,
+    title: "Hobby",
+    titleShort: "Hobby",
+    description:
+    " My hobby, what I do in my free time.",
+    descriptionShort: " My hobby",
+  },
+  {
+    slug: categorySlugs.sea,
+    title: "South East Asia",
+    titleShort: "South East Asia",
+    description:
+    " My experience in South East Asia, the people, the culture, the food.",
+    descriptionShort: " My experience in South East Asia",
+  },
+  {
+    slug: categorySlugs.SaaS,
+    title: "SaaS",
+    titleShort: "SaaS",
+    description:
+    " to be announced: A SaaS product that help you solve your problem",
+    descriptionShort: " to be announced: A SaaS product that help you solve your problem",
+  },
+
+
+  // {
+  //   // The slug to use in the URL, from the categorySlugs object above.
+  //   slug: categorySlugs.feature,
+  //   // The title to display the category title (h1), the category badge, the category filter, and more. Less than 60 characters.
+  //   title: "New Features",
+  //   // A short version of the title above, display in small components like badges. 1 or 2 words
+  //   titleShort: "Features",
+  //   // The description of the category to display in the category page. Up to 160 characters.
+  //   description:
+  //     "Here are the latest features we've added to ShipFast. I'm constantly improving our product to help you ship faster.",
+  //   // A short version of the description above, only displayed in the <Header /> on mobile. Up to 60 characters.
+  //   descriptionShort: "Latest features added to ShipFast.",
+  // },
+  // {
+  //   slug: categorySlugs.tutorial,
+  //   title: "How Tos & Tutorials",
+  //   titleShort: "Tutorials",
+  //   description:
+  //     "Learn how to use ShipFast with these step-by-step tutorials. I'll show you how to ship faster and save time.",
+  //   descriptionShort:
+  //     "Learn how to use ShipFast with these step-by-step tutorials.",
+  // },
 ];
 
 // ==================================================================================================================================================================
@@ -95,40 +158,40 @@ const socialIcons = {
 
 // These slugs are used to generate pages in the /blog/author/[authorId].js. It's a way to show all articles from an author.
 const authorSlugs = {
-  marc: "marc",
+  kent: "kent",
 };
 
 // All the blog authors data display in the /blog/author/[authorId].js pages.
 export const authors = [
   {
     // The slug to use in the URL, from the authorSlugs object above.
-    slug: authorSlugs.marc,
+    slug: authorSlugs.kent,
     // The name to display in the author's bio. Up to 60 characters.
-    name: "Marc Lou",
+    name: "Kent Daniel",
     // The job to display in the author's bio. Up to 60 characters.
-    job: "Maker of ByeDispute",
+    job: "Being Awesome",
     // The description of the author to display in the author's bio. Up to 160 characters.
     description:
-      "Marc is a developer and an entrepreneur. He's built 20 startups in the last 3 years. 6 were profitable and 3 were acquired. He's currently building ByeDispute, the #1 Stripe Chargebacks Protection tool.",
+      "I'm a High Potential Software Engineer at Taiwan Mobile, specializing in MLOps and Investment Consulting. I've had an exciting journey so far, working in startups, NGOs, and now a major corporation. My personal goto statement is 'make small improvement everyday and have fun along the way'.",
     // The avatar of the author to display in the author's bio and avatar badge. It's better to use a local image, but you can also use an external image (https://...)
-    avatar: marcImg,
+    avatar: kentImg,
     // A list of social links to display in the author's bio.
     socials: [
-      {
-        name: socialIcons.twitter.name,
-        icon: socialIcons.twitter.svg,
-        url: "https://twitter.com/marc_louvion",
-      },
+      // {
+      //   name: socialIcons.twitter.name,
+      //   icon: socialIcons.twitter.svg,
+      //   url: "https://twitter.com/kentdan",
+      // },
       {
         name: socialIcons.linkedin.name,
         icon: socialIcons.linkedin.svg,
-        url: "https://www.linkedin.com/in/marclouvion/",
+        url: "https://www.linkedin.com/in/kentdaniel01/",
       },
-      {
-        name: socialIcons.github.name,
-        icon: socialIcons.github.svg,
-        url: "https://github.com/Marc-Lou-Org/ship-fast",
-      },
+      // {
+      //   name: socialIcons.github.name,
+      //   icon: socialIcons.github.svg,
+      //   url: "https://github.com/Marc-Lou-Org/ship-fast",
+      // },
     ],
   },
 ];
@@ -150,95 +213,95 @@ const styles = {
     "text-sm font-mono bg-base-300 px-1 py-0.5 rounded-box select-all",
 };
 
-// All the blog articles data display in the /blog/[articleId].js pages.
+// // All the blog articles data display in the /blog/[articleId].js pages.
 export const articles = [
   {
     // The unique slug to use in the URL. It's also used to generate the canonical URL.
-    slug: "introducing-supabase",
+    slug: "university-courses",
     // The title to display in the article page (h1). Less than 60 characters. It's also used to generate the meta title.
-    title: "Introducing Supabase to ShipFast",
+    title: "The Most Influential Courses I took during Univesity",
     // The description of the article to display in the article page. Up to 160 characters. It's also used to generate the meta description.
     description:
-      "Supabase is an open-source Firebase alternative. It's a great tool for building a backend for your app. It's now integrated with ShipFast!",
+      "I've taken a lot of courses during my time in National Taiwan Univesity. Here are the most influential ones.",
     // An array of categories of the article. It's used to generate the category badges, the category filter, and more.
     categories: [
-      categories.find((category) => category.slug === categorySlugs.feature),
+      categories.find((category) => category.slug === categorySlugs.university),
     ],
     // The author of the article. It's used to generate a link to the author's bio page.
-    author: authors.find((author) => author.slug === authorSlugs.marc),
+    author: authors.find((author) => author.slug === authorSlugs.kent),
     // The date of the article. It's used to generate the meta date.
-    publishedAt: "2023-11-20",
+    publishedAt: "2024-06-22",
     image: {
       // The image to display in <CardArticle /> components.
-      src: introducingSupabaseImg,
-      // The relative URL of the same image to use in the Open Graph meta tags & the Schema Markup JSON-LD.
-      urlRelative: "/blog/introducing-supabase/header.jpg",
-      alt: "Supabase and ShipFast logo combined",
+      // src: introducingSupabaseImg,
+      // // The relative URL of the same image to use in the Open Graph meta tags & the Schema Markup JSON-LD.
+      // urlRelative: "/blog/introducing-supabase/header.jpg",
+      // alt: "Supabase and ShipFast logo combined",
     },
     // The actual content of the article that will be shown under the <h1> title in the article page.
-    content: (
-      <>
-        <Image
-          src={introducingSupabaseImg}
-          alt="Supabase and ShipFast logo combined"
-          width={700}
-          height={500}
-          priority={true}
-          className="rounded-box"
-          placeholder="blur"
-        />
-        <section>
-          <h2 className={styles.h2}>Introduction</h2>
-          <p className={styles.p}>
-            Supabase is an open-source Firebase alternative. It&apos;s a great
-            tool for building a backend for your app. It&apos;s now integrated
-            with ShipFast!
-          </p>
-        </section>
+    // content: (
+//       <>
+//         <Image
+//           src={introducingSupabaseImg}
+//           alt="Supabase and ShipFast logo combined"
+//           width={700}
+//           height={500}
+//           priority={true}
+//           className="rounded-box"
+//           placeholder="blur"
+//         />
+//         <section>
+//           <h2 className={styles.h2}>Introduction</h2>
+//           <p className={styles.p}>
+//             Supabase is an open-source Firebase alternative. It&apos;s a great
+//             tool for building a backend for your app. It&apos;s now integrated
+//             with ShipFast!
+//           </p>
+//         </section>
 
-        <section>
-          <h3 className={styles.h3}>1. Create a supabase account</h3>
-          <p className={styles.p}>
-            First, go to{" "}
-            <a href="https://supabase.com/" className="link link-primary">
-              Supabase
-            </a>{" "}
-            and create an account. It&apos;s free for up to 10,000 rows per
-            table.
-            <br />
-            Then create a new project and a new table. You can use the following
-            SQL schema:
-          </p>
+//         <section>
+//           <h3 className={styles.h3}>1. Create a supabase account</h3>
+//           <p className={styles.p}>
+//             First, go to{" "}
+//             <a href="https://supabase.com/" className="link link-primary">
+//               Supabase
+//             </a>{" "}
+//             and create an account. It&apos;s free for up to 10,000 rows per
+//             table.
+//             <br />
+//             Then create a new project and a new table. You can use the following
+//             SQL schema:
+//           </p>
 
-          <pre className={styles.code}>
-            <code>
-              {`CREATE TABLE public.users (
-  id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
-  email text NOT NULL,
-  password text NOT NULL,
-  created_at timestamp with time zone NOT NULL DEFAULT now(),
-  updated_at timestamp with time zone NOT NULL DEFAULT now(),
-  CONSTRAINT users_pkey PRIMARY KEY (id)
-);`}
-            </code>
-          </pre>
-        </section>
+//           <pre className={styles.code}>
+//             <code>
+//               {`CREATE TABLE public.users (
+//   id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+//   email text NOT NULL,
+//   password text NOT NULL,
+//   created_at timestamp with time zone NOT NULL DEFAULT now(),
+//   updated_at timestamp with time zone NOT NULL DEFAULT now(),
+//   CONSTRAINT users_pkey PRIMARY KEY (id)
+// );`}
+//             </code>
+//           </pre>
+//         </section>
 
-        <section>
-          <h3 className={styles.h3}>2. Add your credentials to ShipFast</h3>
-          <p className={styles.p}>
-            Copy the <span className={styles.codeInline}>API URL</span> and{" "}
-            <span className={styles.codeInline}>API Key</span> from your
-            Supabase project settings and add them to your ShipFast project
-            settings. Add these files to your project:
-          </p>
+//         <section>
+//           <h3 className={styles.h3}>2. Add your credentials to ShipFast</h3>
+//           <p className={styles.p}>
+//             Copy the <span className={styles.codeInline}>API URL</span> and{" "}
+//             <span className={styles.codeInline}>API Key</span> from your
+//             Supabase project settings and add them to your ShipFast project
+//             settings. Add these files to your project:
+//           </p>
 
-          <ul className={styles.ul}>
-            <li className={styles.li}>.env.local</li>
-            <li className={styles.li}>.env.production</li>
-          </ul>
-        </section>
-      </>
-    ),
+//           <ul className={styles.ul}>
+//             <li className={styles.li}>.env.local</li>
+//             <li className={styles.li}>.env.production</li>
+//           </ul>
+//         </section>
+//       </>
+    // ),
   },
 ];

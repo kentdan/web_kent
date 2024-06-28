@@ -2,12 +2,12 @@ import themes from "daisyui/src/theming/themes.js";
 
 const config = {
   // REQUIRED
-  appName: "Quick Poll",
+  appName: "Kent Daniel",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "Quick Poll is an easy-to-use polling app.",
+    "Personal website of Kent Daniel",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "quickpoll.shipfa.st",
+  domainName: "kentdan.com",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
     id: "",

@@ -12,12 +12,12 @@ import Image from "next/image";
 // - alt: The alt text of the image (if type is 'image')
 const features = [
   {
-    title: "Emails",
+    title: "FarmQ",
     description:
-      "Send transactional emails, setup your DNS to avoid spam folder (DKIM, DMARC, SPF in subdomain), and listen to webhook to receive & forward emails",
-    type: "video",
-    path: "https://d3m8mk7e1mf7xn.cloudfront.net/app/newsletter.webm",
-    format: "video/webm",
+      "Grow your veggies safely and increase your yield. An agritech company that make Farm Management System for home gardeners and farmers",
+    // type: "video",
+    // path: "https://d3m8mk7e1mf7xn.cloudfront.net/app/newsletter.webm",
+    // format: "video/webm",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -34,34 +34,34 @@ const features = [
       </svg>
     ),
   },
+  // {
+  //   title: "My Replika",
+  //   description:
+  //     "Replicating your imagination into reality, working with artists to 3d print their characters into life",
+  //   type: "image",
+  //   path: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+  //   alt: "A computer",
+  //   svg: (
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       fill="none"
+  //       viewBox="0 0 24 24"
+  //       strokeWidth={1.5}
+  //       stroke="currentColor"
+  //       className="w-6 h-6"
+  //     >
+  //       <path
+  //         strokeLinecap="round"
+  //         strokeLinejoin="round"
+  //         d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+  //       />
+  //     </svg>
+  //   ),
+  // },
   {
-    title: "Payments",
+    title: "SaaS",
     description:
-      "Create checkout sessions, handle webhooks to update user's account (subscriptions, one-time payments...) and tips to setup your account & reduce chargebacks",
-    type: "image",
-    path: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-    alt: "A computer",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Authentication",
-    description:
-      "Magic links setup, login with Google walkthrough, save user in MongoDB/Supabase, private/protected pages & API calls",
+      "to be announced: A SaaS product that help you solve your problem",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -80,9 +80,9 @@ const features = [
     ),
   },
   {
-    title: "Style",
+    title: "Blogs",
     description:
-      "Components, animations & sections (like this features section), 20+ themes with daisyUI, automatic dark mode",
+      "creating blog to document my journey, hobby and share my thoughts with the world",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -196,9 +196,9 @@ const FeaturesAccordion = () => {
     >
       <div className="px-8">
         <h2 className="font-extrabold text-4xl lg:text-6xl tracking-tight mb-12 md:mb-24">
-          All you need to ship your startup fast
+          Current Projects that I'm working on
           <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
-            and get profitable
+            and having fun doing it
           </span>
         </h2>
         <div className=" flex flex-col md:flex-row gap-12 md:gap-24">

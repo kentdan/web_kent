@@ -22,8 +22,7 @@ export default async function Blog() {
           The {config.appName} Blog
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          Learn how to ship your startup in days, not weeks. And get the latest
-          updates about the boilerplate
+          This page is where I share the small things I learn. I write about everything from startup, AI, South East Asia, my thoughts, my hobby and more. I hope you find something useful here.
         </p>
       </section>
       <section className="grid lg:grid-cols-2 mb-24 md:mb-32 gap-8">

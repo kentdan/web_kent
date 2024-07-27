@@ -12,9 +12,9 @@ import Image from "next/image";
 // - alt: The alt text of the image (if type is 'image')
 const features = [
   {
-    title: "FarmQ",
+    title: "Work",
     description:
-      "Grow your veggies safely and increase your yield. An agritech company that make Farm Management System for home gardeners and farmers",
+      "Taiwan Mobile: HiPo program ( ML+Fullstack & investment+expansion stategist )",
     // type: "video",
     // path: "https://d3m8mk7e1mf7xn.cloudfront.net/app/newsletter.webm",
     // format: "video/webm",
@@ -59,9 +59,9 @@ const features = [
   //   ),
   // },
   {
-    title: "SaaS",
+    title: "Projects",
     description:
-      "to be announced: A SaaS product that help you solve your problem",
+      "FarmQ: increase farmer yield, SaaS: tbh, MyReplika: turn your idea to 3D ",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const features = [
   {
     title: "Blogs",
     description:
-      "creating blog to document my journey, hobby and share my thoughts with the world",
+      "Creating blog to document my journey, hobby and share my thoughts with the world",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -196,9 +196,9 @@ const FeaturesAccordion = () => {
     >
       <div className="px-8">
         <h2 className="font-extrabold text-4xl lg:text-6xl tracking-tight mb-12 md:mb-24">
-          Current Projects that I'm working on
+          Current Things I am working on
           <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
-            and having fun doing it
+          working on
           </span>
         </h2>
         <div className=" flex flex-col md:flex-row gap-12 md:gap-24">

@@ -43,23 +43,30 @@ const Problem = () => {
   return (
     <section className="bg-neutral text-neutral-content">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">
-        <h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">
-           About Me
+        <h2 className="max-w-3xl mx-auto font-extrabold text-5xl md:text-5xl tracking-tight mb-6 md:mb-8">
+           About.
         </h2>
-        <p className="max-w-xl mx-auto text-lg opacity-90 leading-relaxed mb-12 md:mb-20">
-          I'm a High Potential Software Engineer at Taiwan Mobile, specializing in MLOps and Investment Consulting. I've had an exciting journey so far, working in startups, NGOs, and now a major corporation. My personal goto statement is "make small improvement everyday and have fun along the way"
+        <p className="max-w-xl mx-auto text-3xl opacity-90 leading-relaxed mb-12 md:mb-20">
+          I am a Developer base in Taipei, Taiwan
+        </p>
+        
+        <p className="max-w-xl mx-auto text-2xl opacity-90 leading-relaxed mb-12 md:mb-20 ">
+        When try to solve environmental problems in college I realized the scale and complexity of the problems and start learning about data science and AI for solving the problems. Driven by a thirst for comprehensive solutions, I am currently in a journey to master full-stack development. 
+        </p>
+        <p className="max-w-xl mx-auto text-2xl opacity-90 leading-relaxed mb-12 md:mb-20">
+        When am not coding or you can find me doing sports, reading, learning chinese or writing. I am also a big fan of the Football and the Liverpool FC.
         </p>
 
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6">
-          <Step emoji="🤏🏻" text="Small adjustment to your routine" />
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 text-1xl">
+          <Step text="Environmental Science" />
 
           <Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90" />
 
-          <Step emoji="🤪" text="Having fun along the way" />
+          <Step text="ML engineer" />
 
           <Arrow extraStyle="md:-scale-x-100 md:-rotate-90" />
 
-          <Step emoji="(੭˃ᴗ˂)੭" text="Achieving my goal" />
+          <Step  text="Full Stack+ML" />
         </div>
       </div>
     </section>

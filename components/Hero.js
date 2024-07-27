@@ -1,20 +1,36 @@
-import Image from "next/image";
-import TestimonialsAvatars from "./TestimonialsAvatars";
-import config from "@/config";
+"use client";
+
+import { Canvas } from '@react-three/fiber';
+import Experience from './Experience';
+import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
-      <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
-      <h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">
-      Heyo! I'm Kent.
-        </h2>
-        <p className="text-lg opacity-80 leading-relaxed">
-        I've had an exciting journey so far, working in startups, NGOs, and now a major corporation. Some of my coolest projects include serving as the Asia Pacific Regional Representative for an NGO focused on student aspirations regarding climate change, and building a full-stack AI model for a startup. Currently, I'm contributing to one of the biggest tech enterprise in Taiwan, Taiwan Mobile. Recently I also started writing about my experiences and thoughts.
-        </p>
-          <button className="btn btn-primary btn-wide items-center">
-            Writings
-          </button>
+    <section className="relative w-full h-screen mx-auto flex items-center justify-center">
+      <Canvas
+        camera={{
+          fov: 45,
+          near: 0.1,
+          far: 200,
+          position: [0, 5, 13] // Corrected position values
+        }}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <Experience />
+      </Canvas>
+
+      <div className="absolute bottom-60 left-1/2 transform -translate-x-1/2 flex justify-between w-48">
+        <button className="btn btn-primary btn-wide w-12 h-12 flex items-center justify-center rounded-full bg-black hover:bg-red-700 text-white font-bold shadow-lg transition-transform transform hover:scale-105">
+          📝
+        </button>
+
+        <button className="btn btn-primary btn-wide w-12 h-12 flex items-center justify-center rounded-full bg-black hover:bg-blue-700 text-white font-bold shadow-lg transition-transform transform hover:scale-105">
+         🌐
+        </button>
+
+        <button className="btn btn-primary btn-wide w-12 h-12 flex items-center justify-center rounded-full bg-black hover:bg-green-700 text-white font-bold shadow-lg transition-transform transform hover:scale-105">
+          Hi
+        </button>
       </div>
     </section>
   );

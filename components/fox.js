@@ -3,7 +3,7 @@ import { useAnimations, useGLTF } from '@react-three/drei';
 
 export default function Fox() {
     const fox = useRef();
-    const { nodes, materials, animations } = useGLTF('./Fox/glTF/Fox.gltf');
+    const { animations } = useGLTF('./Fox/glTF/Fox.gltf');
     const { actions } = useAnimations(animations, fox);
 
     useEffect(() => {
@@ -17,11 +17,10 @@ export default function Fox() {
         };
     }, [actions]);
 
-  return <primitive 
-  object={fox.current}
-  scale= {0.025}
-  position={[0,-1, 2.5]}
-  // MAKE IT SIDEWAYS
-    rotation={[0, Math.PI / 2, 0]}
-  />
+    return <primitive 
+        object={fox.current}
+        scale={0.025}
+        position={[0,-1, 2.5]}
+        rotation={[0, Math.PI / 2, 0]}
+    />;
 }

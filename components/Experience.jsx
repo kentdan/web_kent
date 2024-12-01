@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useFrame,useThree} from '@react-three/fiber';
 import { Text,MeshReflectorMaterial,useGLTF } from '@react-three/drei';
@@ -10,7 +10,7 @@ import Fox from './fox';
 export default function Experience() {
     const sphere = useRef();
 
-    const messages = ["Kent Daniel", "李鴻根"];
+    const messages = useMemo(() => ["Kent Daniel", "李鴻根"], []);
     const [displayedText, setDisplayedText] = useState(".");
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [typingIndex, setTypingIndex] = useState(0);

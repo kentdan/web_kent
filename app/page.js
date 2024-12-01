@@ -1,8 +1,10 @@
 import Hero3 from '@/components/Hero3';
 import Blog from '@/components/Blog';
+import Projects from '@/components/Projects';
 import '@/app/introduction.css';
 import '@/app/cursor.css';
 import Cursor from '@/components/Cursor';
+import { Suspense } from 'react';
 
 export default function Home() {
   return (

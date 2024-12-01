@@ -230,13 +230,13 @@ export default function Hero2() {
                       <div className="key-value">
                         <span className="key">NAME</span>
                         <span className="equals">=</span>
-                        <span className="value">"Kent Daniel"</span>
+                        <span className="value">&quot;Kent Daniel&quot;</span>
                       </div>
                     ) : cmd.text.startsWith('  THIS WEBSITE') ? (
                       <div className="key-value">
                         <span className="key">THIS WEBSITE</span>
                         <span className="equals">=</span>
-                        <span className="value">"A little bit about my journey"</span>
+                        <span className="value">&quot;A little bit about my journey&quot;</span>
                       </div>
                     ) : cmd.text.startsWith('  BLOG') ? (
                       <div className="key-value">
@@ -246,7 +246,7 @@ export default function Hero2() {
                           href="/blog"
                           className="value hover:opacity-70 transition-opacity cursor-pointer"
                         >
-                          "I tried to learn new skills every week & documented them"
+                          &quot;I tried to learn new skills every week & documented them&quot;
                         </Link>
                       </div>
                     ) : cmd.text.startsWith('  Journey:') ? (

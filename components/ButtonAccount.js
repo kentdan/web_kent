@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
+import { motion } from "framer-motion";
 
 export default function Experience() {
     const sphere = useRef();
@@ -30,7 +31,7 @@ export default function Experience() {
         }
 
         return () => clearInterval(interval);
-    }, [typingIndex, currentMessageIndex]);
+    }, [typingIndex, currentMessageIndex, messages]);
 
     return (
         <>

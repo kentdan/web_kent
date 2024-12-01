@@ -4,12 +4,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useFrame,useThree} from '@react-three/fiber';
 import { Text,MeshReflectorMaterial,useGLTF } from '@react-three/drei';
-// import { Perf } from 'r3f-perf';
 import Fox from './fox';
 
 
 export default function Experience() {
-    const cube = useRef();
     const sphere = useRef();
 
     const messages = ["Kent Daniel", "李鴻根"];
@@ -19,23 +17,23 @@ export default function Experience() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setDisplayedText((prev) =>
-                prev + messages[currentMessageIndex][typingIndex]
-            );
-            setTypingIndex((prev) => prev + 1);
+            if (typingIndex < messages[currentMessageIndex]?.length) {
+                setDisplayedText((prev) =>
+                    prev + messages[currentMessageIndex][typingIndex]
+                );
+                setTypingIndex((prev) => prev + 1);
+            } else {
+                clearInterval(interval);
+                setTimeout(() => {
+                    setTypingIndex(0);
+                    setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
+                    setDisplayedText(".");
+                }, 1000);
+            }
         }, 150);
 
-        if (typingIndex === messages[currentMessageIndex]?.length) {
-            clearInterval(interval);
-            setTimeout(() => {
-                setTypingIndex(0);
-                setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-                setDisplayedText(".");
-            }, 1000);
-        }
-
         return () => clearInterval(interval);
-    }, [typingIndex, currentMessageIndex]);
+    }, [typingIndex, currentMessageIndex, messages]);
 
     return (
         <>

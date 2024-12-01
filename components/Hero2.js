@@ -268,6 +268,36 @@ export default function Hero2() {
                   </div>
                 </MotionDiv>
               ))}
+              <MotionDiv
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 3.6 }}
+                className="terminal-text"
+              >
+                <div className="text-sm">
+                  &quot;This is exactly what I needed!&quot;
+                </div>
+              </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 3.8 }}
+                className="terminal-text"
+              >
+                <div className="text-sm">
+                  &quot;Finally a way to ship fast!&quot;
+                </div>
+              </MotionDiv>
+              <MotionDiv
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 4.0 }}
+                className="terminal-text"
+              >
+                <div className="text-sm">
+                  &quot;Game changer for my projects&quot;
+                </div>
+              </MotionDiv>
             </div>
           </div>
         </div>

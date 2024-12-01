@@ -1,41 +1,36 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useScroll } from "framer-motion";
+import { useEffect, useRef } from "react";
 import '@/app/introduction.css';
 
 export default function Introduction() {
-  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
   useEffect(() => {
+    const currentRef = containerRef.current;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add animation class when in view
+            entry.target.classList.add("animate-in");
+          }
+        });
       },
       { threshold: 0.1 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const element = containerRef.current;
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const progress = Math.max(0, Math.min(1, 1 - (rect.bottom / (rect.height + windowHeight))));
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -53,12 +48,12 @@ export default function Introduction() {
       <motion.div 
         className="relative z-10 max-w-4xl mx-auto px-4 pt-40 text-center text-white"
         initial={{ opacity: 0 }}
-        animate={{ opacity: isVisible ? 1 : 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold mb-8 text-blue-300"
         >
@@ -80,13 +75,20 @@ export default function Introduction() {
         </p>
         <motion.p
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         className="text-lg md:text-xl mt-8 leading-relaxed text-blue-300"
       >
         This profound perspective of our planet inspired me to study Environmental Science at National Taiwan University, 
         driving my commitment to protect our pale blue dot.
       </motion.p>
+
+      <p className="text-lg text-gray-600 mb-8">
+        &quot;I&apos;m passionate about building &apos;ship-fast&apos; products that &apos;solve real problems&apos; for users.&quot;
+      </p>
+      <p className="text-lg text-gray-600">
+        &quot;Let&apos;s build something amazing together!&quot;
+      </p>
 
         <div className="mt-16">
           <motion.div

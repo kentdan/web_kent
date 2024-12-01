@@ -1,25 +1,24 @@
-import {useAnimations, useGLTF } from "@react-three/drei";
-import { Scene } from "three";
-import { use, useEffect } from "react";
-import { useControls } from "leva";
+import { useRef, useEffect } from 'react';
+import { useAnimations, useGLTF } from '@react-three/drei';
+
 export default function Fox() {
-  const fox = useGLTF("./Fox/glTF/Fox.gltf");
-  const animations = useAnimations(fox.animations, fox.scene)  
-  useEffect(() =>
-    {
-        const action = animations.actions.Run
-        action.play()
+    const fox = useRef();
+    const { nodes, materials, animations } = useGLTF('./Fox/glTF/Fox.gltf');
+    const { actions } = useAnimations(animations, fox);
 
-        // window.setTimeout(() =>
-        // {
-        //     animations.actions.Walk.play()
-        //     animations.actions.Walk.crossFadeFrom(animations.actions.Run,1)
-        // }, 2000)
-    }, [])
-
+    useEffect(() => {
+        const action = actions.Run;
+        action.play();
+        
+        return () => {
+            if (action) {
+                action.stop();
+            }
+        };
+    }, [actions]);
 
   return <primitive 
-  object={fox.scene}
+  object={fox.current}
   scale= {0.025}
   position={[0,-1, 2.5]}
   // MAKE IT SIDEWAYS

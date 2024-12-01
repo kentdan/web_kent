@@ -1,19 +1,16 @@
+'use client';
+
 import { Suspense } from "react";
-import HeaderBlog from "./_assets/components/HeaderBlog";
-import Footer from "@/components/Footer";
+
 
 export default async function LayoutBlog({ children }) {
   return (
-    <div>
-      <Suspense>
-        <HeaderBlog />
-      </Suspense>
-
-      <main className="min-h-screen max-w-6xl mx-auto p-8">{children}</main>
-
-      <div className="h-24" />
-
-      <Footer />
+    <div className="min-h-screen bg-white">
+      <div className="max-w-[1400px] mx-auto px-4">
+        <main className="pt-12 pb-24">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

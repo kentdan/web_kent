@@ -1,172 +1,85 @@
-import Link from "next/link";
-import Script from "next/script";
+'use client';
+
 import { articles } from "../_assets/content";
-import BadgeCategory from "../_assets/components/BadgeCategory";
-import Avatar from "../_assets/components/Avatar";
-import { getSEOTags } from "@/libs/seo";
-import config from "@/config";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }) {
+export default function ArticlePage({ params }) {
   const article = articles.find((article) => article.slug === params.articleId);
 
-  return getSEOTags({
-    title: article.title,
-    description: article.description,
-    canonicalUrlRelative: `/blog/${article.slug}`,
-    extraTags: {
-      openGraph: {
-        title: article.title,
-        description: article.description,
-        url: `/blog/${article.slug}`,
-        images: [
-          {
-            url: article.image.urlRelative,
-            width: 1200,
-            height: 660,
-          },
-        ],
-        locale: "en_US",
-        type: "website",
-      },
-    },
-  });
-}
-
-export default async function Article({ params }) {
-  const article = articles.find((article) => article.slug === params.articleId);
-  const articlesRelated = articles
-    .filter(
-      (a) =>
-        a.slug !== params.articleId &&
-        a.categories.some((c) =>
-          article.categories.map((c) => c.slug).includes(c.slug)
-        )
-    )
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-    .slice(0, 3);
+  if (!article) {
+    notFound();
+  }
 
   return (
-    <>
-      {/* SCHEMA JSON-LD MARKUP FOR GOOGLE */}
-      <Script
-        type="application/ld+json"
-        id={`json-ld-article-${article.slug}`}
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `https://${config.domainName}/blog/${article.slug}`,
-            },
-            name: article.title,
-            headline: article.title,
-            description: article.description,
-            image: `https://${config.domainName}${article.image.urlRelative}`,
-            datePublished: article.publishedAt,
-            dateModified: article.publishedAt,
-            author: {
-              "@type": "Person",
-              name: article.author.name,
-            },
-          }),
-        }}
-      />
-
-      {/* GO BACK LINK */}
-      <div>
-        <Link
-          href="/blog"
-          className="link !no-underline text-base-content/80 hover:text-base-content inline-flex items-center gap-1"
-          title="Back to Blog"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-5 h-5"
+    <article className="max-w-3xl mx-auto px-4 py-24">
+      {/* Categories and Date */}
+      <div className="flex items-center gap-3 mb-8">
+        {article.categories.map((category) => (
+          <Link
+            key={category.slug}
+            href={`/blog/category/${category.slug}`}
+            className={`text-sm px-3 py-1.5 rounded-full ${
+              category.slug === 'tech' 
+                ? 'bg-gray-100 text-gray-700' 
+                : 'text-gray-600'
+            }`}
           >
-            <path
-              fillRule="evenodd"
-              d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Back to Blog
-        </Link>
+            {category.title}
+          </Link>
+        ))}
+        <span className="text-gray-400">·</span>
+        <time className="text-gray-600 text-sm">{article.publishedAt}</time>
       </div>
 
-      <article>
-        {/* HEADER WITH CATEGORIES AND DATE AND TITLE */}
-        <section className="my-12 md:my-20 max-w-[800px]">
-          <div className="flex items-center gap-4 mb-6">
-            {article.categories.map((category) => (
-              <BadgeCategory
-                category={category}
-                key={category.slug}
-                extraStyle="!badge-lg"
-              />
-            ))}
-            <span className="text-base-content/80" itemProp="datePublished">
-              {new Date(article.publishedAt).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </span>
-          </div>
+      {/* Title */}
+      <h1 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
+        {article.title}
+      </h1>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 md:mb-8">
-            {article.title}
-          </h1>
+      {/* Description */}
+      <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+        {article.description}
+      </p>
 
-          <p className="text-base-content/80 md:text-lg max-w-[700px]">
-            {article.description}
-          </p>
-        </section>
-        
-        <div className="flex flex-col md:flex-row">
-          {/* SIDEBAR WITH AUTHORS AND 3 RELATED ARTICLES */}
-          <section className="max-md:pb-4 md:pl-12 max-md:border-b md:border-l md:order-last md:w-72 shrink-0 border-base-content/10">
-            <p className="text-base-content/80 text-sm mb-2 md:mb-3">
-              Posted by
-            </p>
-            <Avatar article={article} />
-
-            {articlesRelated.length > 0 && (
-              <div className="hidden md:block mt-12">
-                <p className=" text-base-content/80 text-sm  mb-2 md:mb-3">
-                  Related reading
-                </p>
-                <div className="space-y-2 md:space-y-5">
-                  {articlesRelated.map((article) => (
-                    <div className="" key={article.slug}>
-                      <p className="mb-0.5">
-                        <Link
-                          href={`/blog/${article.slug}`}
-                          className="link link-hover hover:link-primary font-medium"
-                          title={article.title}
-                          rel="bookmark"
-                        >
-                          {article.title}
-                        </Link>
-                      </p>
-                      <p className="text-base-content/80 max-w-full text-sm">
-                        {article.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </section>
-
-          {/* ARTICLE CONTENT */}
-          <section className="w-full max-md:pt-4 md:pr-20 space-y-12 md:space-y-20">
-            {article.content}
-          </section>
+      {/* Author */}
+      <div className="flex items-center gap-4 mb-16 pb-16 border-b border-gray-200">
+        <div className="w-12 h-12 relative rounded-full overflow-hidden bg-gray-100">
+          {article.author?.avatar && (
+            <Image
+              src={article.author.avatar}
+              alt={article.author.name}
+              fill
+              className="object-cover"
+            />
+          )}
         </div>
-      </article>
-    </>
+        <div>
+          <div className="font-medium text-black">{article.author?.name}</div>
+          <div className="text-sm text-gray-600">{article.author?.role}</div>
+        </div>
+      </div>
+
+      {/* Main Image */}
+      <div className="aspect-[16/9] relative mb-16 bg-gray-100 overflow-hidden">
+        {article.image?.src ? (
+          <img
+            src={require(`../_assets/images/authors/${article.image.src}`).default.src}
+            alt={article.image.alt}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">
+            {article.image?.alt || "Article image"}
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="prose prose-lg max-w-none prose-headings:text-black prose-p:text-gray-600 prose-a:text-blue-600 prose-strong:text-black">
+        {article.content}
+      </div>
+    </article>
   );
 }

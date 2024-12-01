@@ -1,80 +1,71 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
-import BadgeCategory from "./BadgeCategory";
-import Avatar from "./Avatar";
 
-// This is the article card that appears in the home page, in the category page, and in the author's page
-const CardArticle = ({
-  article,
-  tag = "h2",
-  showCategory = true,
-  isImagePriority = false,
-}) => {
-  const TitleTag = tag;
+export default function CardArticle({ article, isImagePriority = false }) {
+  const { slug, title, description, categories, author, publishedAt, image } = article;
 
   return (
-    <article className="card bg-base-200 rounded-box overflow-hidden">
-      {article.image?.src && (
-        <Link
-          href={`/blog/${article.slug}`}
-          className="link link-hover hover:link-primary"
-          title={article.title}
-          rel="bookmark"
-        >
-          <figure>
-            <Image
-              src={article.image.src}
-              alt={article.image.alt}
-              width={600}
-              height={338}
-              priority={isImagePriority}
-              placeholder="blur"
-              className="aspect-video object-center object-cover hover:scale-[1.03] duration-200 ease-in-out"
-            />
-          </figure>
-        </Link>
-      )}
-      <div className="card-body">
-        {/* CATEGORIES */}
-        {showCategory && (
-          <div className="flex flex-wrap gap-2">
-            {article.categories.map((category) => (
-              <BadgeCategory category={category} key={category.slug} />
-            ))}
+    <Link href={`/blog/${slug}`} className="group block bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+      {/* Image */}
+      <div className="aspect-[16/9] relative bg-gray-100 overflow-hidden">
+        {image?.src ? (
+          <img
+            src={require(`../images/authors/${image.src}`).default.src}
+            alt={image.alt}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">
+            {image?.alt || "Article image"}
           </div>
         )}
+      </div>
 
-        {/* TITLE WITH RIGHT TAG */}
-        <TitleTag className="mb-1 text-xl md:text-2xl font-bold">
-          <Link
-            href={`/blog/${article.slug}`}
-            className="link link-hover hover:link-primary"
-            title={article.title}
-            rel="bookmark"
-          >
-            {article.title}
-          </Link>
-        </TitleTag>
-
-        <div className=" text-base-content/80 space-y-4">
-          {/* DESCRIPTION */}
-          <p className="">{article.description}</p>
-
-          {/* AUTHOR & DATE */}
-          <div className="flex items-center gap-4 text-sm">
-            <Avatar article={article} />
-
-            <span itemProp="datePublished">
-              {new Date(article.publishedAt).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-              })}
+      {/* Content */}
+      <div className="p-6 bg-white/60 backdrop-blur-sm">
+        {/* Category */}
+        <div className="mb-2 flex gap-2 items-center">
+          {categories?.map((category) => (
+            <span
+              key={category.slug}
+              className={`text-xs px-2 py-1 rounded ${
+                category.slug === 'tech' 
+                  ? 'bg-gray-100 text-gray-700' 
+                  : 'text-gray-600'
+              }`}
+            >
+              {category.titleShort}
             </span>
+          ))}
+          <span className="text-xs text-gray-400">·</span>
+          <time className="text-xs text-gray-600">{publishedAt}</time>
+        </div>
+
+        {/* Title & Description */}
+        <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-700 transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+          {description}
+        </p>
+
+        {/* Author */}
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 relative rounded-full overflow-hidden bg-gray-100">
+            {author?.avatar && (
+              <Image
+                src={author.avatar}
+                alt={author.name}
+                fill
+                className="object-cover"
+              />
+            )}
           </div>
+          <span className="text-sm text-gray-600">{author?.name}</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
-};
-
-export default CardArticle;
+}

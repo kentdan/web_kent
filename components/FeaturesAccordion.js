@@ -61,7 +61,7 @@ const features = [
   {
     title: "Projects",
     description:
-      "FarmQ: increase farmer yield, SaaS: tbh, MyReplika: turn your idea to 3D ",
+      "To be announced soon ( Related to space, 3D, agriculture, investment and more)",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const features = [
   {
     title: "Blogs",
     description:
-      "Creating blog to document my journey, hobby and share my thoughts with the world",
+      "Sharing my prespective about space, technology, environment, investment and more",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

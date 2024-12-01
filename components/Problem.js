@@ -51,7 +51,7 @@ const Problem = () => {
         </p>
         
         <p className="max-w-xl mx-auto text-2xl opacity-90 leading-relaxed mb-12 md:mb-20 ">
-        When try to solve environmental problems in college I realized the scale and complexity of the problems and start learning about data science and AI for solving the problems. Driven by a thirst for comprehensive solutions, I am currently in a journey to master full-stack development. 
+        When try to solve environmental problems in college I realized the scale and complexity of the problems and start learning about satellite, data science and AI for solving the problems. Driven by a thirst for comprehensive solutions, I am currently in a journey to master full-stack development. 
         </p>
         <p className="max-w-xl mx-auto text-2xl opacity-90 leading-relaxed mb-12 md:mb-20">
         When am not coding or you can find me doing sports, reading, learning chinese or writing. I am also a big fan of the Football and the Liverpool FC.

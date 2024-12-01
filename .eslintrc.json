@@ -7,6 +7,10 @@
   },
   "rules": {
     // Your specific rules.
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "@next/next/no-async-client-component": "warn"
   }
 }

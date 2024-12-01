@@ -165,14 +165,14 @@ export const articles = [
         <section className={styles.section}>
           <h2 className={styles.h2}>Grab and OpenAI</h2>
           <p className={styles.p}>
-            Grab has collaborated with OpenAI to integrate GPT-4's vision fine-tuning to allow GrabMaps to localize speed limit signs, turn restrictions, places, and road geometries more accurately.
+            Grab has collaborated with OpenAI to integrate GPT-4&apos;s vision fine-tuning to allow GrabMaps to localize speed limit signs, turn restrictions, places, and road geometries more accurately.
           </p>
           <ul className={styles.ul}>
             <li className={styles.li}>Speed limit sign localization: The initial use case involved matching speed limit signs to their respective roads.</li>
             <li className={styles.li}>Turn restriction and geometry identification: The model identifies intricate details like elevated roads and turn restrictions, which are crucial for navigation.</li>
           </ul>
           <p className={styles.p}>
-            By using their network of motorbike drivers and pedestrian partners, equipped with 360-degree cameras they have collected millions of street-level images. With the street data collected and by using OpenAI's vision fine-tuning, Grab has made mapmaking faster, smarter, and more efficient. These highly detailed maps improve navigation for millions of users and driver-partners daily, boosting economic activity across Southeast Asia.
+            By using their network of motorbike drivers and pedestrian partners, equipped with 360-degree cameras they have collected millions of street-level images. With the street data collected and by using OpenAI&apos;s vision fine-tuning, Grab has made mapmaking faster, smarter, and more efficient. These highly detailed maps improve navigation for millions of users and driver-partners daily, boosting economic activity across Southeast Asia.
           </p>
           <p className={styles.p}>
             To find out more about the collaboration visit: <a href="https://openai.com/index/grab/" className={styles.link} target="_blank" rel="noopener noreferrer">OpenAI x Grab</a>
@@ -187,7 +187,7 @@ export const articles = [
           
           <h3 className={styles.h3}>Model Size</h3>
           <p className={styles.p}>
-            They chose smaller models (7B, 8B, and 9B parameters) instead of larger ones, prioritizing efficiency. These models were fine-tuned from AI Singapore's SEA-LION v2, which supports Southeast Asian languages like Thai, Vietnamese, and Tamil.
+            They chose smaller models (7B, 8B, and 9B parameters) instead of larger ones, prioritizing efficiency. These models were fine-tuned from AI Singapore&apos;s SEA-LION v2, which supports Southeast Asian languages like Thai, Vietnamese, and Tamil.
           </p>
 
           <h3 className={styles.h3}>Cultural Focus</h3>

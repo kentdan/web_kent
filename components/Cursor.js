@@ -8,8 +8,19 @@ export default function Cursor() {
   const cursorDotRef = useRef(null);
   const cursorOutlineRef = useRef(null);
   const trailsRef = useRef([]);
+  const backgroundOverlayRef = useRef(null);
 
   useEffect(() => {
+    // Create background overlay
+    const backgroundOverlay = document.createElement('div');
+    backgroundOverlay.className = 'absolute inset-0 bg-black opacity-25';
+    backgroundOverlay.style.position = 'fixed';
+    backgroundOverlay.style.width = '100%';
+    backgroundOverlay.style.height = '100%';
+    backgroundOverlay.style.zIndex = '0';
+    document.body.appendChild(backgroundOverlay);
+    backgroundOverlayRef.current = backgroundOverlay;
+
     // Create cursor elements
     const cursorDot = document.createElement('div');
     cursorDot.className = 'cursor-dot';
@@ -45,10 +56,10 @@ export default function Cursor() {
       const trail = document.createElement('div');
       trail.className = 'cursor-trail';
       trail.style.transform = `translate(${clientX}px, ${clientY}px)`;
-      trail.style.width = '4px';
-      trail.style.height = '4px';
-      trail.style.backgroundColor = 'rgba(34, 197, 94, 0.3)';
-      trail.style.opacity = '0.5';
+      trail.style.width = '2px';
+      trail.style.height = '2px';
+      trail.style.backgroundColor = 'rgba(34, 197, 94, 0.2)';
+      trail.style.opacity = '0.3';
       document.body.appendChild(trail);
       trailsRef.current.push(trail);
 
@@ -183,6 +194,7 @@ export default function Cursor() {
       trailsRef.current.forEach(trail => trail.remove());
       points.forEach(point => point.remove());
       lines.forEach(line => line.remove());
+      backgroundOverlay.remove();
       clearInterval(binaryInterval);
       document.removeEventListener('mousemove', handleMouseMove);
       interactiveElements.forEach(el => {

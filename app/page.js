@@ -12,9 +12,8 @@ export default function Home() {
   return (
     <>
       <Cursor />
-      <main className="flex min-h-screen flex-col black">
+      <main className="flex min-h-screen flex-col bg-black">
         <Hero2 />
-        {/* <Hero3 /> */}
         
         <div className="container mx-auto px-4 max-w-[1400px]">
           <Blog />

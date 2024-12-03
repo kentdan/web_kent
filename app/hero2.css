@@ -200,11 +200,11 @@
   position: absolute;
   width: 4px;
   height: 4px;
-  background-color: rgba(34, 197, 94, 0.8);
+  background-color: rgba(34, 197, 94, 0.4);
   border-radius: 50%;
   pointer-events: none;
   animation: dataPoint 3s infinite;
-  opacity: 0.8;
+  opacity: 0.4;
 }
 
 .data-point::after {
@@ -220,10 +220,10 @@
 .connection-line {
   position: absolute;
   height: 1px;
-  background-color: rgba(34, 197, 94, 0.3);
+  background-color: rgba(34, 197, 94, 0.15);
   transform-origin: left center;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .scroll-arrow {
@@ -273,10 +273,9 @@
 
 .binary-number {
   position: absolute;
-  color: rgba(74, 222, 128, 0.3);
-  font-family: 'Fira Code', monospace;
+  color: rgba(34, 197, 94, 0.2);
+  font-family: monospace;
   font-size: 14px;
-  animation: floatUp 10s linear forwards;
   pointer-events: none;
-  text-shadow: 0 0 5px rgba(74, 222, 128, 0.3);
+  animation: floatUp 10s linear;
 }

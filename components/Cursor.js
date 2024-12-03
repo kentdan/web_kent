@@ -44,8 +44,11 @@ export default function Cursor() {
       // Create trail effect
       const trail = document.createElement('div');
       trail.className = 'cursor-trail';
-      trail.style.transform = `translate(${clientX - 3}px, ${clientY - 3}px)`;
+      trail.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      trail.style.width = '4px';
+      trail.style.height = '4px';
       trail.style.backgroundColor = 'rgba(34, 197, 94, 0.3)';
+      trail.style.opacity = '0.5';
       document.body.appendChild(trail);
       trailsRef.current.push(trail);
 

@@ -188,7 +188,7 @@ export default function Hero2() {
     { text: 'visitor@kent_daniel_website:~$ whoami', delay: 0 },
     { text: '> User Profile:', delay: 0.8 },
     { text: '  NAME="Kent Daniel"', delay: 1.2 },
-    { text: '  THIS WEBSITE="A little bit about me"', delay: 1.6 },
+    { text: '  WEBSITE="A little bit about me"', delay: 1.6 },
     { text: '  BLOG="Exploring ideas at the intersection of technology, investment, and personal growth"', delay: 2.0 },
     { text: '  Interest:', delay: 2.4 },
     { text: '    "Artificial Intelligence"', delay: 2.6 },
@@ -232,9 +232,9 @@ export default function Hero2() {
                         <span className="equals">=</span>
                         <span className="value">&quot;Kent Daniel&quot;</span>
                       </div>
-                    ) : cmd.text.startsWith('  THIS WEBSITE') ? (
+                    ) : cmd.text.startsWith('  WEBSITE') ? (
                       <div className="key-value">
-                        <span className="key">THIS WEBSITE</span>
+                        <span className="key">WEBSITE</span>
                         <span className="equals">=</span>
                         <span className="value">&quot;A little bit about me&quot;</span>
                       </div>

@@ -13,39 +13,35 @@ export default function ArticlePage({ params }) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-24">
+    <article className="max-w-3xl mx-auto px-4 py-24 bg-black min-h-screen">
       {/* Categories and Date */}
       <div className="flex items-center gap-3 mb-8">
         {article.categories.map((category) => (
           <Link
             key={category.slug}
             href={`/blog/category/${category.slug}`}
-            className={`text-sm px-3 py-1.5 rounded-full ${
-              category.slug === 'tech' 
-                ? 'bg-gray-100 text-gray-700' 
-                : 'text-gray-600'
-            }`}
+            className="text-sm text-white"
           >
             {category.title}
           </Link>
         ))}
         <span className="text-gray-400">·</span>
-        <time className="text-gray-600 text-sm">{article.publishedAt}</time>
+        <time className="text-gray-400 text-sm">{article.publishedAt}</time>
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
+      <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
         {article.title}
       </h1>
 
       {/* Description */}
-      <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+      <p className="text-xl text-gray-400 mb-12 leading-relaxed">
         {article.description}
       </p>
 
       {/* Author */}
-      <div className="flex items-center gap-4 mb-16 pb-16 border-b border-gray-200">
-        <div className="w-12 h-12 relative rounded-full overflow-hidden bg-gray-100">
+      <div className="flex items-center gap-4 mb-16 pb-16 border-b border-gray-600">
+        <div className="w-12 h-12 relative rounded-full overflow-hidden bg-gray-600">
           {article.author?.avatar && (
             <Image
               src={article.author.avatar}
@@ -56,13 +52,13 @@ export default function ArticlePage({ params }) {
           )}
         </div>
         <div>
-          <div className="font-medium text-black">{article.author?.name}</div>
-          <div className="text-sm text-gray-600">{article.author?.role}</div>
+          <div className="font-medium text-white">{article.author?.name}</div>
+          <div className="text-sm text-gray-400">{article.author?.role}</div>
         </div>
       </div>
 
       {/* Main Image */}
-      <div className="aspect-[16/9] relative mb-16 bg-gray-100 overflow-hidden">
+      <div className="aspect-[16/9] relative mb-16 bg-gray-600 overflow-hidden">
         {article.image?.src ? (
           <img
             src={require(`../_assets/images/authors/${article.image.src}`).default.src}
@@ -77,7 +73,7 @@ export default function ArticlePage({ params }) {
       </div>
 
       {/* Content */}
-      <div className="prose prose-lg max-w-none prose-headings:text-black prose-p:text-gray-600 prose-a:text-blue-600 prose-strong:text-black">
+      <div className="prose prose-invert prose-lg max-w-none">
         {article.content}
       </div>
     </article>

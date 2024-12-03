@@ -188,13 +188,13 @@ export default function Hero2() {
     { text: 'visitor@kent_daniel_website:~$ whoami', delay: 0 },
     { text: '> User Profile:', delay: 0.8 },
     { text: '  NAME="Kent Daniel"', delay: 1.2 },
-    { text: '  THIS WEBSITE="A little bit about my journey"', delay: 1.6 },
-    { text: '  BLOG="I tried to learn new skills every week & documented them"', delay: 2.0 },
-    { text: '  Journey:', delay: 2.4 },
-    { text: '    "Started in Environmental Science"', delay: 2.6 },
-    { text: '    "Fascinated by Deep Learning & Data Science"', delay: 2.8 },
-    { text: '    "Becoming a Full-Stack Developer"', delay: 3.0 },
-    { text: '    "Now Building My Own Team"', delay: 3.2 },
+    { text: '  THIS WEBSITE="A little bit about me"', delay: 1.6 },
+    { text: '  BLOG="Exploring ideas at the intersection of technology, investment, and personal growth"', delay: 2.0 },
+    { text: '  Interest:', delay: 2.4 },
+    { text: '    "Artificial Intelligence"', delay: 2.6 },
+    { text: '    "Environmental Science"', delay: 2.8 },
+    { text: '    "Software Development"', delay: 3.0 },
+    { text: '    "Level Up My Skills"', delay: 3.2 },
     { text: 'visitor@kent_daniel_website:~$ ', delay: 3.4 }
   ];
   return (
@@ -212,7 +212,7 @@ export default function Hero2() {
                 <span className="terminal-button minimize"></span>
                 <span className="terminal-button maximize"></span>
               </div>
-              <div className="terminal-title">visitor@portfolio: ~</div>
+              {/* <div className="terminal-title">visitor@portfolio: ~</div> */}
             </div>
             <div className="terminal-content">
               {commands.map((cmd, index) => (
@@ -236,7 +236,7 @@ export default function Hero2() {
                       <div className="key-value">
                         <span className="key">THIS WEBSITE</span>
                         <span className="equals">=</span>
-                        <span className="value">&quot;A little bit about my journey&quot;</span>
+                        <span className="value">&quot;A little bit about me&quot;</span>
                       </div>
                     ) : cmd.text.startsWith('  BLOG') ? (
                       <div className="key-value">
@@ -246,7 +246,7 @@ export default function Hero2() {
                           href="/blog"
                           className="value hover:opacity-70 transition-opacity cursor-pointer"
                         >
-                          &quot;I tried to learn new skills every week & documented them&quot;
+                          &quot;The intersection of all of my interests&quot;
                         </Link>
                       </div>
                     ) : cmd.text.startsWith('  Journey:') ? (
@@ -268,36 +268,7 @@ export default function Hero2() {
                   </div>
                 </MotionDiv>
               ))}
-              <MotionDiv
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 3.6 }}
-                className="terminal-text"
-              >
-                <div className="text-sm">
-                  &quot;This is exactly what I needed!&quot;
-                </div>
-              </MotionDiv>
-              <MotionDiv
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 3.8 }}
-                className="terminal-text"
-              >
-                <div className="text-sm">
-                  &quot;Finally a way to ship fast!&quot;
-                </div>
-              </MotionDiv>
-              <MotionDiv
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 4.0 }}
-                className="terminal-text"
-              >
-                <div className="text-sm">
-                  &quot;Game changer for my projects&quot;
-                </div>
-              </MotionDiv>
+              
             </div>
           </div>
         </div>
@@ -320,7 +291,7 @@ export default function Hero2() {
             });
           }}
         >
-          <span className="text-green-400 text-lg font-mono">Scroll to Learn More</span>
+          {/* <span className="text-green-400 text-lg font-mono">Scroll to Learn More</span> */}
           <div className="scroll-arrow">
             <span></span>
             <span></span>

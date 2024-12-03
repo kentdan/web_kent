@@ -20,7 +20,7 @@ export default function Hero3() {
               Kent Daniel
             </h1>
             <p className="text-gray-800 text-xl mb-8 text-center lg:text-left">
-              <span className="font-semibold bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">AI Engineer · Full Stack Developer · Writer</span>
+              <span className="font-semibold bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">Building Cool Things. One cool thing at a time</span>
               <br />
               <span className="mt-4 block text-gray-600 text-lg">
                 My interest is the intersection of AI, Environmental Science, and Software Development. When am not coding or you can find me doing sports, reading, learning chinese or writing.

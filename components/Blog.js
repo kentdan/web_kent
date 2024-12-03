@@ -38,12 +38,10 @@ export default function Blog() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 leading-normal py-1">
+        <h2 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#239D60] to-[#1b7548] leading-normal py-1">
           Latest Articles
         </h2>
-        <p className="text-xl text-gray-600 mb-8">
-          Exploring ideas at the intersection of technology, investment, and personal growth.
-        </p>
+
       </MotionDiv>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -54,10 +52,16 @@ export default function Blog() {
             cat.title.toLowerCase().includes('ai') || 
             cat.title.toLowerCase().includes('tech')
           );
+
+          const isAseanArticle = article.categories.some(cat =>
+            cat.slug === 'asean' ||
+            cat.title.toLowerCase().includes('asean') ||
+            cat.title.toLowerCase().includes('sea')
+          );
           
-          const tag = isTechArticle ? 'AI♠' :
-                     article.categories[0]?.slug === 'asean' ? 'SEA♣' : 
-                     article.categories[0]?.slug === 'investment' ? 'INV♦' : 'UNI♥';
+          const tag = isTechArticle ? 'Tech News' :
+                     isAseanArticle ? 'ASEAN News' : 
+                     article.categories[0]?.slug === 'investment' ? 'Investment' : 'Others';
           
           return (
             <MotionDiv
@@ -65,52 +69,33 @@ export default function Blog() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 group relative aspect-[3/4] border-2 border-gray-200"
+              className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 group relative aspect-[3/4] border-2 border-[#239D60]/20"
             >
+              <Link href={`/blog/${article.slug}`} className="absolute inset-0 z-30">
+                <span className="sr-only">Read {article.title}</span>
+              </Link>
               {/* Card Corner Text */}
               <div className="absolute top-4 left-4 text-left z-20">
-                <div className={`font-bold text-2xl leading-tight tracking-wide ${
-                  tag.includes('♦') ? 'text-red-600' : 
-                  tag.includes('♠') ? 'text-blue-600' : 
-                  tag.includes('♣') ? 'text-green-600' :
-                  'text-purple-600'
-                }`}>
-                  {tag}
-                </div>
-              </div>
-              <div className="absolute bottom-4 right-4 text-right z-20 transform rotate-180">
-                <div className={`font-bold text-2xl leading-tight tracking-wide ${
-                  tag.includes('♦') ? 'text-red-600' : 
-                  tag.includes('♠') ? 'text-blue-600' : 
-                  tag.includes('♣') ? 'text-green-600' :
-                  'text-purple-600'
-                }`}>
+                <div className={`text-sm ${tag === 'Tech News' ? 'font-bold' : 'font-medium'} text-white`}>
                   {tag}
                 </div>
               </div>
 
-              <div className="h-1/2 relative">
-                {article.image?.src ? (
-                  <img
-                    src={require(`@/app/blog/_assets/images/authors/${article.image.src}`).default.src}
-                    alt={article.image.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">
-                    {article.image?.alt || "Article image"}
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0">
+                <img
+                  src="/images/green.png"
+                  alt="Blog cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
               </div>
 
-              <div className="p-6 bg-white bg-opacity-90 backdrop-blur-sm h-1/2 flex flex-col justify-between">
+              <div className="relative z-10 p-6 h-full flex flex-col justify-end">
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-[#239D60] transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{article.description}</p>
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2">
                     <div className="w-6 h-6 relative rounded-full overflow-hidden bg-gray-100">
                       {article.author?.avatar && (
                         <Image
@@ -121,18 +106,11 @@ export default function Blog() {
                         />
                       )}
                     </div>
-                    <span className="text-sm text-gray-600">{article.author?.name}</span>
+                    <span className="text-sm text-gray-200">{article.author?.name}</span>
                     <span className="text-gray-400">·</span>
-                    <time className="text-sm text-gray-600">{article.publishedAt}</time>
+                    <time className="text-sm text-gray-200">{article.publishedAt}</time>
                   </div>
                 </div>
-                <Link
-                  href={`/blog/${article.slug}`}
-                  className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group mt-auto"
-                >
-                  Read Article
-                  <span className="ml-1 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                </Link>
               </div>
             </MotionDiv>
           );
